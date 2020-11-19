@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To Authenticate add HEADER:
 
-Things you may want to cover:
+X-API-Token: 111111
 
-* Ruby version
+Create Provider:
+# POST api/v1/providers?name=Telefonica
 
-* System dependencies
+Read Provider:
+# GET api/v1/providers/:id
 
-* Configuration
+Update Provider:
+# PUT api/v1/providers/:id?name=Endesa
 
-* Database creation
+Delete Provider:
+# DELETE api/v1/providers/:id
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Mark Pixel as Converted:
+# PUT api/v1/tracking_pixels/:tracking_pixel_id/converted
