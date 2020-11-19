@@ -21,9 +21,7 @@ class Api::V1::TrackingPixelsController < Api::BaseController
 
   # POST api/v1/tracking_pixels
   def create
-    @tracking_pixel = TrackingPixel.new
-    @tracking_pixel.name = params[:name]
-    @tracking_pixel.provider_id = params[:provider_id]
+    @tracking_pixel = TrackingPixel.new(tracking_pixel_params)
 
     if @tracking_pixel.save
       render json: @tracking_pixel
@@ -45,9 +43,7 @@ class Api::V1::TrackingPixelsController < Api::BaseController
 
   # PATCH/PUT api/v1/tracking_pixels/1
   def update
-    @tracking_pixel.name = params[:name]
-    @tracking_pixel.provider_id = params[:provider_id]   
-    if @tracking_pixel.save
+    if @tracking_pixel.update(tracking_pixel_params)
       render json: @tracking_pixel
     else
       render json: @tracking_pixel.errors, status: :unprocessable_entity
@@ -67,6 +63,6 @@ class Api::V1::TrackingPixelsController < Api::BaseController
 
     # Only allow a trusted parameter "white list" through.
     def tracking_pixel_params
-      params.fetch(:tracking_pixel, {})
+      params.permit(:name, :provider_id)
     end
 end

@@ -21,8 +21,7 @@ class Api::V1::ProvidersController < Api::BaseController
 
   # POST api/v1/providers
   def create
-    @provider = Provider.new
-    @provider.name = params[:name]
+    @provider = Provider.new(provider_params)
 
     if @provider.save
       render json: @provider
@@ -33,8 +32,7 @@ class Api::V1::ProvidersController < Api::BaseController
 
   # PATCH/PUT api/v1/providers/1
   def update
-    @provider.name = params[:name]
-    if @provider.save
+    if @provider.update(provider_params)
       render json: @provider
     else
       render json: @provider.errors, status: :unprocessable_entity
@@ -54,7 +52,7 @@ class Api::V1::ProvidersController < Api::BaseController
 
     # Only allow a trusted parameter "white list" through.
     def provider_params
-      params.fetch(:provider, {})
+      params.permit(:name)
     end
   
 end
