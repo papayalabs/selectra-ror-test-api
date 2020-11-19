@@ -20,8 +20,9 @@ Update Provider:
 Delete Provider:
 # DELETE api/v1/providers/:id
 
-Create a Pixel for a given Provider:
+Create a Pixel for a given Provider( 2 endpoints ):
 # POST api/v1/tracking_pixels?name=Pixel1&provider_id=1
+# POST api/v1/providers/1/create_tracking_pixel?name=Pixel1
 
 Mark Pixel as Converted:
 # PUT api/v1/tracking_pixels/:tracking_pixel_id/converted

@@ -30,6 +30,20 @@ class Api::V1::ProvidersController < Api::BaseController
     end
   end
 
+  # POST api/v1/providers/:id/create_tracking_pixel
+  def create_tracking_pixel
+    @provider = Provider.find(params[:provider_id])
+    @tracking_pixel = TrackingPixel.new
+    @tracking_pixel.name = params[:name]
+    @tracking_pixel.provider = @provider
+
+    if @tracking_pixel.save
+      render json: @tracking_pixel
+    else
+      render json: @tracking_pixel.errors, status: :unprocessable_entity
+    end
+  end
+
   # PATCH/PUT api/v1/providers/1
   def update
     if @provider.update(provider_params)
