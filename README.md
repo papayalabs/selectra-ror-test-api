@@ -2,7 +2,7 @@
 
 Remember to run:
 
-# rake db:seed to populate users
+# Rake db:seed to populate users
 
 To Authenticate add HEADER:
 
