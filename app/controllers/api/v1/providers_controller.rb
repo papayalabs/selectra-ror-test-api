@@ -12,7 +12,6 @@ class Api::V1::ProvidersController < Api::BaseController
   def show
     begin
       @provider = Provider.find(params[:id])
-      render json: @provider
     rescue ActiveRecord::RecordNotFound
       puts 'Record Not Found'
       render 'api/errors/not_found', status: 404
