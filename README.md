@@ -2,11 +2,11 @@
 
 Remember to run:
 
-rake db:seed to populate users
+# rake db:seed to populate users
 
 To Authenticate add HEADER:
 
-X-API-Token: 111111
+# X-API-Token: 111111
 
 Create Provider:
 # POST api/v1/providers?name=Telefonica
