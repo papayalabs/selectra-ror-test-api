@@ -1,5 +1,9 @@
 # README
 
+Remember to run:
+
+rake db:seed to populate users
+
 To Authenticate add HEADER:
 
 X-API-Token: 111111
