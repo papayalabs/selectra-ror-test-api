@@ -1,8 +1,8 @@
 # README
 
-Remember to run:
+Remember to run rake db:seed to populate users:
 
-# Rake db:seed to populate users
+# rake db:seed
 
 To Authenticate add HEADER:
 
