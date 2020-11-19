@@ -19,7 +19,7 @@ class Api::V1::TrackingPixelsController < Api::BaseController
     end
   end
 
-  # POST /tracking_pixels
+  # POST api/v1/tracking_pixels
   def create
     @tracking_pixel = TrackingPixel.new
     @tracking_pixel.name = params[:name]
